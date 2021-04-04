@@ -1,0 +1,103 @@
+.contact-item
+{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    text-align: left !important;
+    padding: 2px;
+    margin: 2px;
+    color: white !important;
+    background-color: rgba(142, 36, 170,.9);
+    transition: all .5s ease-in-out;
+    margin-top: 10px;
+}
+#add-form
+{
+    background-color: rgba(142, 36, 170,.9);
+    margin-left: 15px;
+    margin-top: 10px;
+    border: 2px solid rgba(0,0,0,.2);
+
+    border-radius: 20px;
+    color: white;
+display: none;
+    transition: all 1s ease;
+}
+#add-form:hover
+   { border: 2px solid rgba(0,0,0,.7);
+       box-shadow: 2px 2px 4px #eefeea;
+   }
+#add-button
+{
+    box-shadow: 2px 2px 4px ghostwhite;
+    border-radius: 50%;
+ background-color: rgba(0,0,0,.2);
+}
+#add-button:hover
+{
+    background-color: rgba(0,0,0,.7);
+    box-shadow: 4px 4px 4px gray;
+}
+.contact-item:hover
+{
+    transform: scale(1.05,1.05);
+
+}
+.main-content
+{
+    width: 60%;
+    display: inline-block;
+}
+.options
+{
+    display: inline-block;
+    width: 37%;
+    text-align: right;
+    vertical-align: bottom;
+    justify-content: end;
+}
+body
+{
+  background-color:  rgba(142, 36, 170,.4);
+    z-index: -1000;
+}
+ul {
+    list-style: none; /* Remove default bullets */
+    vertical-align: baseline;
+}
+
+ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: rgba(142, 36, 170,1); /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+.delete-button
+{
+    box-shadow: 2px 2px 4px ghostwhite;
+    border-radius: 50%;
+    border: 2px solid mediumpurple;
+    background-color:rgba(0,0,0,.1);
+}
+.delete-button:hover
+{
+    background-color: rgba(0,0,0,.3);
+    box-shadow: 4px 4px 4px gray;
+}
+.edit-button
+{
+    box-shadow: 2px 2px 4px ghostwhite;
+    border-radius: 50%;
+    padding: 4px;
+    background-color:rgba(0,0,0,.1);
+}
+.edit-button:hover
+{
+    background-color: rgba(0,0,0,.3);
+    box-shadow: 4px 4px 4px gray;
+}
+#add-contact:hover
+{
+    background-color: black !important;
+}

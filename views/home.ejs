@@ -1,0 +1,134 @@
+<html>
+<head>
+    <title> <%=title%></title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+<body>
+<div class="container mt-4 text-center justify-content-center">
+    <div class="row d-flex">
+        <h1 style="color: rgba(142, 36, 170,1);
+         font-family:Georgia; font-size: 3rem !important;"> <span>
+            <i class="material-icons" style="font-size:2.5rem !important; color: white;
+vertical-align: center">phone</i>   </span>Contacts List</h1>
+    </div>
+    <div class="row d-flex justify-content-center ml-2">
+        <div class="col-12 col-md-6">
+            <button class="btn btn-outline-light" type="button" id="add-button" onclick="addCollapseHandler(event);">
+        <i class="material-icons" style="font-size:60px; color: white ">add</i>
+            </button>
+        </div>
+
+
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-10 col-md-6 col-lg-4" id="add-form" >
+            <form method="post" action="/create-contact" id="add-form-inner">
+                <div>
+                <label for="name"> Name: </label>
+                <input type="text" style="width: 60%;margin-left: 20px;
+margin-top: 10px"  name="name" id="name" placeholder="enter new name here"
+                style="row-span: 2">
+                </div>
+                <br/>
+                <div>
+                <label for="phone"> Phone No: </label>
+                <input type="text" style="width: 60%" name="phone" id="phone" placeholder="enter new phone no here">
+                </div>
+            <hr style="border: 2px solid palegoldenrod" >
+                <div>
+                    <input type="submit" style="background-color: rebeccapurple; color: white!important;" class="btn  btn-outline-light " name="add" id="add-contact" value="Add Contact" />
+                <button type="button"  class="btn btn-outline-light" id="close-button" style="vertical-align: bottom;
+display: inline; background-color: rebeccapurple" onclick="closeForm(event);">
+                    Close
+                </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <ul>
+    <div class="row d-flex justify-content-center mt-2">
+    <% for ( let i=0;i<contact_list.length;i++){%>
+    <div class="col-10 col-md-6 contact-item justify-content-center">
+    <li>
+        <div class="main-content">
+            <span>Name: </span>  <div class="contact-name" style="display: inline;
+color: lightpink" >
+            <%=contact_list[i].name%>
+        </div>
+        <br/>
+               <span class="ml-2"> Phone: </span><div class="contact-phone" style="display: inline;
+color: lightpink" ><%=contact_list[i].phone%>
+        </div>
+        </div>
+        <div class="options justify-content-end col-12">
+            <a href="/delete-contact/<%=contact_list[i]._id%>" >
+                    <i class="material-icons delete-button" style="font-size:40px; color: white ">delete</i>
+            </a>
+            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalLong_<%=contact_list[i]._id%>"
+            style="display: inline-block; vertical-align: baseline">
+                <i class="material-icons edit-button" style="font-size:40px; color: white; ">edit</i>
+            </button>
+
+        </div>
+    </li>
+</div>
+        <div class="modal fade" id="exampleModalLong_<%=contact_list[i]._id%>" tabindex="-1" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form class="modal-content" method="post" action="/edit-contact/<%=contact_list[i]._id%>">
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Edit Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <div>
+                        <label for="edit_name"> Name:</label>
+                        <input type="text" name="edit_name"
+                               value="<%=contact_list[i].name%>" >
+                            </div>
+                            <div>
+                        <label for="edit_phone"> Phone:</label>
+                        <input type="text" name="edit_phone"
+                               value="<%=contact_list[i].phone%>">
+                            </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                           <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+                </form>
+        </div>
+        </div>
+        <%}%>
+    </div>
+        <br/>
+    </ul>
+<!--<h1>OYO6YTOGTO</h1>-->
+<!--<h2> Tittle is <%=title%></h2>-->
+<!--<ul>-->
+    <!--<% for (let i=1;i<=6;i++){ %>-->
+    <!--<%if(i%2==0) {%>-->
+    <!--<li type="circle">-->
+        <!--<%= i %>-->
+    <!--</li>-->
+    <!--<%}else {%>-->
+        <!--<li type="square">-->
+            <!--<%= i %>-->
+        <!--</li>-->
+        <!--<%}%>-->
+    <!--<%}%>-->
+<!--</ul>-->
+</div>
+</div>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
