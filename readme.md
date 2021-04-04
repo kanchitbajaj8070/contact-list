@@ -13,7 +13,7 @@ A general application of contact list management constructed while learning the 
 Contains all the basic crud operation using EXPRESS and Mongoose
 
 ## Screenshots
-![Example screenshot](./public/screenshot.png)
+!(public/screenshot.PNG)
 
 ## Technologies
 * BOOTSTRAP
