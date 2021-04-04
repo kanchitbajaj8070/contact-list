@@ -13,7 +13,7 @@ A general application of contact list management constructed while learning the 
 Contains all the basic crud operation using EXPRESS and Mongoose
 
 ## Screenshots
-!{screenshot](https://github.com/kanchitbajaj8070/contact-list/blob/master/public/screenshot.PNG)
+![screenshot](https://github.com/kanchitbajaj8070/contact-list/blob/master/public/screenshot.PNG)
 
 ## Technologies
 * BOOTSTRAP
